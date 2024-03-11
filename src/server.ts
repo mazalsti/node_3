@@ -5,7 +5,6 @@ import path from "path"; //path e para pegar o arquivo da raiz
 import mainRouter from "./routes/index";
 
 dotenv.config();
-
 const server = express();
 
 //configuracao do mustache
@@ -16,6 +15,7 @@ server.engine('mustache', mustache());
 //configurando a pasta public
 server.use(express.static(path.join(__dirname, '../public')));
 server.use(express.urlencoded({extended: true}));
+
 //routas
 server.use(mainRouter);
 server.use((req: Request,res: Response)=>{

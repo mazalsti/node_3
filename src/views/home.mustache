@@ -2,7 +2,15 @@
 <title>Pagina Home</title>
 <body>
 <h1> HOME </h1>
-
+    <hr>
+        <h3>
+            <ul>
+                {{#product}}
+                    <li>ID: {{Codigo}} Desc: {{Descricao}} Preco: {{PreLoj}} </li>
+                {{/product}}
+            </ul>
+        </h3>
+    <hr>
 </body>
 <footer></footer>
 </html>

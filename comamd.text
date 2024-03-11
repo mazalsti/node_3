@@ -38,7 +38,7 @@ Em casos raros, o cache npm pode ficar corrompido. Para mim, o que funcionou foi
 3 - npm install
 4 - npm install typescript
 5 - 
-
+--------------- Drizzle ORM 
 6 - npm run start
 --- Verifique se você instalou expresso módulo. Caso contrário, use este comando:
 6.1 - npm install --save express
