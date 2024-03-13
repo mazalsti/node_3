@@ -8,10 +8,11 @@ export const home = async (req: Request, res: Response) =>{
     const product = await Produto.findAll({
         where: {
             Codigo:{
-                [Op.between]: [ 1,100 ]
+                [Op.between]: [1, 100]
             }
-        }
-    
+        },
+        // limit: 1,
+        // offset: 0, 
     });
     // console.log("TabProdutos", JSON.stringify(product, null, 2))
 
