@@ -1,6 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "../instances/mysql";
 
+
+
 export interface ProdutoInstance extends Model {
     Codigo: number;
     Descricao: string;
