@@ -4,9 +4,9 @@ import * as HomeController from '../controllers/homeController';
 
 const router = Router();
 
-router.get('/', HomeController.home);
-// router.get('/dogs', PageController.dogs);
-// router.get('/cats', PageController.cats);
+router.get('/home', HomeController.home);
+router.post('/home/insert', HomeController.insert);
+router.put('/home/update', HomeController.update);
 // router.get('/fishes', PageController.fishes);
 
 
