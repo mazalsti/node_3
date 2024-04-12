@@ -64,6 +64,7 @@ export const insert = async (req: Request, res: Response) => {
         });
 }
 
+// atualizando table
 export const update = async (req: Request, res: Response) =>{
     const up_imagem = await Image.findOne({
         where: {
@@ -71,7 +72,7 @@ export const update = async (req: Request, res: Response) =>{
         },
     });
 
-    console.log(up_imagem);
+    // console.log(up_imagem);
     res.render('home', {})
 
 }
