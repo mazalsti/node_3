@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Op } from "sequelize";
 import { Produto } from "../models/Produtos";
-import { Image } from "../models/Image";
+import { Image, ImageInterface } from "../models/Image";
 import { describe } from "node:test";
 
 export const home = async (req: Request, res: Response) =>{
@@ -43,36 +43,64 @@ export const home = async (req: Request, res: Response) =>{
     res.render('home', {product});
 }
 
+// insert de valores
+// export const insert = async (req: Request, res: Response) => {
+//     let categoria: string = req.body.categoria as string;
+//     let descricao: string = req.body.descricao as string;
+//     let qtdimage: number = req.body.qtdimage as number;
 
-export const insert = async (req: Request, res: Response) => {
-    let categoria: string = req.body.categoria as string;
-    let descricao: string = req.body.descricao as string;
-    let qtdimage: number = req.body.qtdimage as number;
+//     const imagem = await Image.create({
+//         categoria: categoria,
+//         descrier: descricao,
+//         qtdimage: qtdimage
+//     })
+//     await imagem.save();
 
-
-    const imagem = await Image.create({
-        categoria: categoria,
-        descricao: descricao,
-        qtdimage: qtdimage
-    })
-    await imagem.save();
-
-    res.render('home', {
-            categoria,
-            descricao,
-            qtdimage
-        });
-}
+//     res.render('home', {
+//             categoria,
+//             descricao,
+//             qtdimage
+//     });
+// }
 
 // atualizando table
-export const update = async (req: Request, res: Response) =>{
-    const up_imagem = await Image.findOne({
-        where: {
-            id: "1"
-        },
-    });
+// export const update = async (req: Request, res: Response) =>{
+//     const up_imagem = await Image.findOne({
+//         where: {
+//             id: "1"
+//         },
+//     });
 
-    // console.log(up_imagem);
-    res.render('home', {})
+//     // console.log(up_imagem);
+//     res.render('home', {})
+// }
 
-}
+// atualizando valores na tabela de dados 
+export const updatePull = async (req: Request, res: Response) => {
+    let result = await Image.findAll({ where: {id: 5} });
+    console.log(result);
+    // let images: string;
+    if(result.length > 0){
+       let images: ImageInterface = result[0];
+        
+        images.categoria = 'test';
+        images.descricao = 'Test-descricao';
+        images.qtdimage = 12;
+
+        await images.save();
+    }
+    res.render('home', {result});
+}  
+
+// Deletando dados
+export const deleteData = async (req: Request, res: Response) => {
+    let result = await Image.findAll({ where: {id: 5} });
+    console.log(result);
+    // let images: string;
+    if(result.length > 0){
+       let images: ImageInterface = result[0];
+
+        await images.destroy();
+    }
+    res.render('home', {result});
+} 

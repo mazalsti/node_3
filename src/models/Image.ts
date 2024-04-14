@@ -3,9 +3,9 @@ import { sequelize } from "../instances/mysql";
 import { Mode } from "fs";
 
 export interface ImageInterface extends Model {
-    categoria: 'Papelaria',
-    descricao: 'Canetas, Informatica, Pastas',
-    qtdimage:  '3'
+    categoria: string,
+    descricao: string,
+    qtdimage: number 
 };
 
 export const Image = sequelize.define<ImageInterface>("Image",{

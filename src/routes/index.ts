@@ -5,8 +5,8 @@ import * as HomeController from '../controllers/homeController';
 const router = Router();
 
 router.get('/home', HomeController.home);
-router.post('/home/insert', HomeController.insert);
-router.put('/home/update', HomeController.update);
+// router.post('/home/insert', HomeController.insert);
+router.get('/update', HomeController.updatePull);
 // router.get('/fishes', PageController.fishes);
 
 
